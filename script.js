@@ -78,7 +78,7 @@ function typeEffect() {
 typeEffect();
 
 
-//Hero Section
+
 let currentIndex = 0;
 const slides = document.querySelectorAll(".slide-image");
 const totalSlides = slides.length;
@@ -109,7 +109,6 @@ document.querySelector("#btn-2").addEventListener("click", nextSlide);
 document.querySelector("#btn-1").addEventListener("click", prevSlide);
 
 
-//Holiday Category
 const cardContainer = document.getElementById("category-card");
 const leftBtn = document.getElementById("left-button");
 const rightBtn = document.getElementById("right-button");
@@ -177,27 +176,25 @@ const marginLeft = parseInt(cardStyle.marginLeft);
 const marginRight = parseInt(cardStyle.marginRight);
 
 const packageWidth = firstCard.offsetWidth + marginLeft + marginRight;
- // card + margin
+
     let autoScrollPackages;
 
-    // --- Step 1: Clone cards for seamless infinite loop ---
+
     const packageCards = document.querySelectorAll(".pack-card");
     packageCards.forEach(card => {
         const clone = card.cloneNode(true);
         packagesContainer.appendChild(clone);
     });
-
-    // --- Step 2: Scroll Right ---
     function scrollPackagesRight() {
         packagesContainer.scrollBy({ left: packageWidth, behavior: "smooth" });
 
-        // Reset to start when halfway
+      
         if (packagesContainer.scrollLeft >= packagesContainer.scrollWidth / 2) {
             packagesContainer.scrollTo({ left: 0, behavior: "instant" });
         }
     }
 
-    // --- Scroll Left ---
+
     function scrollPackagesLeft() {
         packagesContainer.scrollBy({ left: -packageWidth, behavior: "smooth" });
 
@@ -206,7 +203,7 @@ const packageWidth = firstCard.offsetWidth + marginLeft + marginRight;
         }
     }
 
-    // --- Step 3: Button Controls ---
+
     rightPackageBtn.addEventListener("click", () => {
         scrollPackagesRight();
         resetAutoScrollPackages();
@@ -217,9 +214,9 @@ const packageWidth = firstCard.offsetWidth + marginLeft + marginRight;
         resetAutoScrollPackages();
     });
 
-    // --- Step 4: Auto Scroll ---
+    
     function startAutoScrollPackages() {
-        autoScrollPackages = setInterval(scrollPackagesRight, 3000); // every 3s
+        autoScrollPackages = setInterval(scrollPackagesRight, 3000);
     }
 
     function resetAutoScrollPackages() {
