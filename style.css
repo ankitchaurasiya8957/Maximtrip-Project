@@ -228,8 +228,9 @@ body{
     width: 100vw;
     height: 60vh;
     background-color: #ffffff;
-    padding-left: 140px;
+   
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
 }
 .red-text{
     color: #CE3C3D;
@@ -247,7 +248,7 @@ body{
     /* border: 1px solid black; */
      overflow: hidden;        
     white-space: nowrap;
-    width: 88%;
+    width: 100%;
     height: 350px;      
     display: flex;
     justify-content: flex-start;
@@ -350,7 +351,7 @@ body{
     width: 20px;
 }
 #right-button{
-    right: 9%;
+    right: 20px;
   /* left: anchor(right); */
   top: anchor(center);
   transform: translateY(-50%);
@@ -362,31 +363,52 @@ body{
 }
 #holiday-packages{
     margin-top: 60px;
-    /* border: 1px solid black; */
-    width: 100vw;
-    height: 60vh;
-    padding-left: 140px;
+overflow:hidden;
+    width: 97vw;
+    padding-left: 50px;
+    height: 80vh;
+    margin-bottom: 50px;
+   background-color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-snap-type: x mandatory;
+
 }
 #packages-card{
     margin-top: 50px;
-    /* border: 1px solid black; */
-    width: 88%;
-    height: 419px; 
-    overflow: hidden;
-    display: flex;
     
+scroll-snap-align: start;
+    width: 100%;
+    height: 419px; 
+ overflow: hidden;
+    display: flex;
+  
+   
+     
+    white-space: nowrap;
+       
+  
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    anchor-name: --categorycard;
+    scroll-behavior: smooth;
 }
 .pack-card{
-    border: 1px solid rgb(196, 196, 196);
-    flex: 0 0 20rem;
+ position: relative;
+ 
+    flex: 0 0 21rem;
     height: 100%;
-    margin: 0 20px;
-    border-radius: 15px;
+width: 200px;
+    margin: 0 10px;
+    border-radius: px;
+    justify-content: space-between;
     transition: 0.3s ease-out;
     anchor-name: --packagecard;
     scroll-behavior: smooth;
 }
+
+
+
 .pack-card:hover{
     transition: 0.2s ease-in;
     transform: translateY(-5px);
@@ -505,13 +527,58 @@ body{
     width: 20px;
 }
 #right-package{
-    right: 9%;
-  /* left: anchor(right); */
+    right: -0.5%;
   top: anchor(center);
   transform: translateY(-50%);
 }
 #left-package{
-  left: anchor(left);
+
+  left: -0.5%;
   top: anchor(center);
   transform: translateY(-50%);
 }
+
+@media (max-width: 1099px) and (min-width: 420px) {
+  #packages-card {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #packages-card .pack-card {
+    flex: 0 0 45%;   
+    margin: 10px;
+  }
+
+ 
+  .package-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  #packages-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #packages-card .pack-card {
+    flex: 0 0 90%;   
+    margin: 10px 0;
+  }
+
+
+  .package-btn {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
